@@ -5,4 +5,4 @@ I love music. Like really though. One of my favorite things about music is when 
 
 This resource is meant to be a showcase of lyrics that capture my attention.
 
-Cloned from [http://github.com/mdee/undREST](undREST)
+Cloned from [undREST](http://github.com/mdee/undREST)
