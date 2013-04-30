@@ -2,8 +2,7 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
-
+import java.util.List;
 
 /**
  * @author MDee
@@ -29,13 +28,13 @@ public class Band implements Serializable {
             joinColumns = {@JoinColumn(name = "band_id")},
             inverseJoinColumns = @JoinColumn(name = "lyricist_id")
     )
-    private Set<Lyricist> lyricists;
+    private List<Lyricist> lyricists;
 
     @OneToMany(
             mappedBy = "band",
             cascade = {CascadeType.ALL}
     )
-    private Set<Album> albums;
+    private List<Album> albums;
 
     public Long getId() {
         return id;
@@ -50,19 +49,19 @@ public class Band implements Serializable {
         this.name = name;
     }
 
-    public Set<Lyricist> getLyricists() {
+    public List<Lyricist> getLyricists() {
         return lyricists;
     }
 
-    public void setLyricists(Set<Lyricist> lyricists) {
+    public void setLyricists(List<Lyricist> lyricists) {
         this.lyricists = lyricists;
     }
 
-    public Set<Album> getAlbums() {
+    public List<Album> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(Set<Album> albums) {
+    public void setAlbums(List<Album> albums) {
         this.albums = albums;
     }
 }

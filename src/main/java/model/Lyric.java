@@ -23,8 +23,8 @@ public class Lyric implements Serializable {
     @Column(name = "song_offset", nullable =  false)
     private Integer songOffset;
 
-    @Column(name = "added_timestamp", nullable = false)
-    private Timestamp addedTimestamp;
+    @Column(name = "date_added", nullable = false)
+    private Timestamp dateAdded;
 
     @Column(name = "text", nullable = false)
     private String text;
@@ -92,11 +92,11 @@ public class Lyric implements Serializable {
         this.songOffset = songOffset;
     }
 
-    public Timestamp getAddedTimestamp() {
-        return addedTimestamp;
+    public Timestamp getDateAdded() {
+        return dateAdded;
     }
 
-    public void setAddedTimestamp(Timestamp addedTimestamp) {
-        this.addedTimestamp = addedTimestamp;
+    public void setDateAdded(Timestamp dateAdded) {
+        this.dateAdded = dateAdded;
     }
 }

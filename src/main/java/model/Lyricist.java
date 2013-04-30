@@ -9,7 +9,7 @@ import java.util.Set;
  * @author MDee
  */
 @Entity
-@Table(name = "lyric")
+@Table(name = "lyricist")
 @SuppressWarnings("serial")
 public class Lyricist implements Serializable {
 
@@ -20,6 +20,9 @@ public class Lyricist implements Serializable {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "pic_url", nullable = false)
+    private String picUrl;
 
     @OneToMany(
             mappedBy = "lyricist",
@@ -56,5 +59,21 @@ public class Lyricist implements Serializable {
 
     public void setLyrics(Set<Lyric> lyrics) {
         this.lyrics = lyrics;
+    }
+
+    public Set<Band> getBands() {
+        return bands;
+    }
+
+    public void setBands(Set<Band> bands) {
+        this.bands = bands;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 }

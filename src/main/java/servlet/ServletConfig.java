@@ -5,6 +5,7 @@ import java.util.Map;
 
 import dao.*;
 import daoImpl.*;
+import resources.BandResource;
 import resources.LyricResource;
 import service.*;
 import serviceImpl.*;
@@ -27,11 +28,16 @@ public class ServletConfig extends GuiceServletContextListener {
             @Override
             protected void configureServlets() {
                 Map<String, String> params = new HashMap<String, String>();
+
+                params.put("com.sun.jersey.spi.container.ContainerResponseFilters", "filter.ResponseCorsFilter");
+                // This enables JSON for POJOs
+                params.put("com.sun.jersey.api.json.POJOMappingFeature", "true");
                 
                 // Bindings
                 bind(LyricResource.class);
                 bind(LyricDao.class).to(LyricDaoImpl.class);
                 bind(LyricService.class).to(LyricServiceImpl.class);
+                bind(BandResource.class);
                 bind(BandDao.class).to(BandDaoImpl.class);
                 bind(BandService.class).to(BandServiceImpl.class);
                 bind(AlbumDao.class).to(AlbumDaoImpl.class);
