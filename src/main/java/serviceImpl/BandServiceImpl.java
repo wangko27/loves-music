@@ -27,6 +27,10 @@ public class BandServiceImpl implements BandService {
         return bandDao.getBandWithId(id);
     }
 
+    public Band getBandWithName(String name) {
+        return bandDao.getBandWithName(name);
+    }
+
     public List<Band> getAllBands() {
         return bandDao.getAllBands();
     }

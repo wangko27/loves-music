@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -44,6 +46,7 @@ public class Tag implements Serializable {
         this.name = name;
     }
 
+    @JsonIgnore
     public Set<Lyric> getLyrics() {
         return lyrics;
     }

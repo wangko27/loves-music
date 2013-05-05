@@ -27,6 +27,18 @@ public class AlbumServiceImpl implements AlbumService {
         return albumDao.getAlbumWithId(id);
     }
 
+    public Album getAlbumWithTitleAndBandName(String title, String bandName) {
+        List<Album> albumsWithTitle = albumDao.getAlbumsWithTitle(title);
+        Album albumToReturn = null;
+        for (Album album : albumsWithTitle) {
+            if (album.getBand().getName().equals(bandName)) {
+                albumToReturn = album;
+                break;
+            }
+        }
+        return albumToReturn;
+    }
+
     public List<Album> getAllAlbums() {
         return albumDao.getAllAlbums();
     }

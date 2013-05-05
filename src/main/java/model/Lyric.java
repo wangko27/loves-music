@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Set;
@@ -92,6 +94,7 @@ public class Lyric implements Serializable {
         this.songOffset = songOffset;
     }
 
+    @JsonIgnore
     public Timestamp getDateAdded() {
         return dateAdded;
     }

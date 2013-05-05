@@ -14,5 +14,7 @@ public interface TagService extends BaseService {
 
     public Tag getTagWithId(Long id);
 
+    public Tag getTagWithName(String name);
+
     public List<Tag> getAllTags();
 }

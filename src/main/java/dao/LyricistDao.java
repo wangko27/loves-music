@@ -14,5 +14,7 @@ public interface LyricistDao extends BaseDao {
 
     public Lyricist getLyricistWithId(Long id);
 
+    public Lyricist getLyricistWithName(String name);
+
     public List<Lyricist> getAllLyricists();
 }

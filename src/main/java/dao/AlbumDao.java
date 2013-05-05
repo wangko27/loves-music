@@ -14,6 +14,8 @@ public interface AlbumDao extends BaseDao {
 
     public Album getAlbumWithId(Long id);
 
+    public List<Album> getAlbumsWithTitle(String title);
+
     public List<Album> getAllAlbums();
 
 }

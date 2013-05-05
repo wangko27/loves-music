@@ -27,6 +27,10 @@ public class LyricistServiceImpl implements LyricistService {
         return lyricistDao.getLyricistWithId(id);
     }
 
+    public Lyricist getLyricistWithName(String name) {
+        return lyricistDao.getLyricistWithName(name);
+    }
+
     public List<Lyricist> getAllLyricists() {
         return lyricistDao.getAllLyricists();
     }

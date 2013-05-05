@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -49,6 +51,7 @@ public class Band implements Serializable {
         this.name = name;
     }
 
+    @JsonIgnore
     public List<Lyricist> getLyricists() {
         return lyricists;
     }
@@ -57,6 +60,7 @@ public class Band implements Serializable {
         this.lyricists = lyricists;
     }
 
+    @JsonIgnore
     public List<Album> getAlbums() {
         return albums;
     }

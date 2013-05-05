@@ -16,4 +16,6 @@ public interface TagDao extends BaseDao {
 
    public List<Tag> getAllTags();
 
+   public Tag getTagWithName(String name);
+
 }

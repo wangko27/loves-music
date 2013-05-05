@@ -14,5 +14,7 @@ public interface SongService extends BaseService {
 
    public Song getSongWith(Long id);
 
+   public Song getSongWithTitleAndAlbumTitle(String songTitle, String albumTitle);
+
    public List<Song> getAllSongs();
 }

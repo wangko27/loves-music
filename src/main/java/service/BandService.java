@@ -14,5 +14,7 @@ public interface BandService extends BaseService {
 
     public Band getBandWithId(Long id);
 
+    public Band getBandWithName(String name);
+
     public List<Band> getAllBands();
 }

@@ -14,5 +14,7 @@ public interface LyricistService extends BaseService {
 
     public Lyricist getLyricistWithId(Long id);
 
+    public Lyricist getLyricistWithName(String name);
+
     public List<Lyricist> getAllLyricists();
 }

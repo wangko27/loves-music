@@ -7,6 +7,7 @@ import dao.TagDao;
 import model.Tag;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -37,6 +38,18 @@ public class TagoDaoImpl implements TagDao {
     public List<Tag> getAllTags() {
         TypedQuery<Tag> query = entityManager.get().createQuery("from Tag t", Tag.class);
         return query.getResultList();
+    }
+
+    public Tag getTagWithName(String name) {
+        TypedQuery<Tag> query = entityManager.get().createQuery("from Tag t where t.name = :name", Tag.class);
+        query.setParameter("name", name);
+        Tag existingTag = null;
+        try {
+            existingTag = query.getSingleResult();
+        } catch (NoResultException nre) {
+            // Nothin.
+        }
+        return existingTag;
     }
 
     public Provider<EntityManager> getEntityManager() {

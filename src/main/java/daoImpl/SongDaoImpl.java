@@ -34,6 +34,12 @@ public class SongDaoImpl implements SongDao {
         return query.getSingleResult();
     }
 
+    public List<Song> getSongsWithTitle(String title) {
+        TypedQuery<Song> query = entityManager.get().createQuery("from Song s where s.title = :title", Song.class);
+        query.setParameter("title", title);
+        return query.getResultList();
+    }
+
     public List<Song> getAllSongs() {
         TypedQuery<Song> query = entityManager.get().createQuery("from Song s", Song.class);
         return query.getResultList();

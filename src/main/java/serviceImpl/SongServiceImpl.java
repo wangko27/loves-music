@@ -27,6 +27,18 @@ public class SongServiceImpl implements SongService {
         return songDao.getSongWithId(id);
     }
 
+    public Song getSongWithTitleAndAlbumTitle(String songTitle, String albumTitle) {
+        List<Song> songsWithTitle = songDao.getSongsWithTitle(songTitle);
+        Song songToReturn = null;
+        for (Song song : songsWithTitle) {
+            if (song.getAlbum().getTitle().equals(albumTitle)) {
+                songToReturn = song;
+                break;
+            }
+        }
+        return songToReturn;
+    }
+
     public List<Song> getAllSongs() {
         return songDao.getAllSongs();
     }

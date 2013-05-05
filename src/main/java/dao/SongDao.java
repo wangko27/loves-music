@@ -14,6 +14,8 @@ public interface SongDao extends BaseDao {
 
     public Song getSongWithId(Long id);
 
+    public List<Song> getSongsWithTitle(String title);
+
     public List<Song> getAllSongs();
 
 }

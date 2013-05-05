@@ -14,6 +14,8 @@ public interface AlbumService extends BaseService {
 
     public Album getAlbumWithId(Long id);
 
+    public Album getAlbumWithTitleAndBandName(String title, String bandName);
+
     public List<Album> getAllAlbums();
 
 }

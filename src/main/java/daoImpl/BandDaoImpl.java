@@ -34,6 +34,18 @@ public class BandDaoImpl implements BandDao {
         return query.getSingleResult();
     }
 
+    public Band getBandWithName(String name) {
+        TypedQuery<Band> query = entityManager.get().createQuery("from Band b where b.name = :name", Band.class);
+        query.setParameter("name", name);
+        List<Band> bands = query.getResultList();
+        // Janky way to handle bands that have the same name...shouldn't happen but hey it might
+        if (bands.size() > 0) {
+            return bands.get(0);
+        } else {
+            return null;
+        }
+    }
+
     public List<Band> getAllBands() {
         TypedQuery<Band> query = entityManager.get().createQuery("from Band b", Band.class);
         return query.getResultList();

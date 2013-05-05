@@ -7,6 +7,7 @@ import dao.LyricistDao;
 import model.Lyricist;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -32,6 +33,18 @@ public class LyricistDaoImpl implements LyricistDao {
         TypedQuery<Lyricist> query = entityManager.get().createQuery("from Lyricist l where l.id = :id", Lyricist.class);
         query.setParameter("id", id);
         return query.getSingleResult();
+    }
+
+    public Lyricist getLyricistWithName(String name) {
+        TypedQuery<Lyricist> query = entityManager.get().createQuery("from Lyricist l where l.name = :name", Lyricist.class);
+        query.setParameter("name", name);
+        Lyricist lyricist = null;
+        try {
+            lyricist = query.getSingleResult();
+        } catch (NoResultException nre) {
+            // NOTHING TO SEE HERE
+        }
+        return lyricist;
     }
 
     public List<Lyricist> getAllLyricists() {

@@ -27,6 +27,10 @@ public class TagServiceImpl implements TagService {
         return tagDao.getTagWithId(id);
     }
 
+    public Tag getTagWithName(String name) {
+        return tagDao.getTagWithName(name);
+    }
+
     public List<Tag> getAllTags() {
         return tagDao.getAllTags();
     }

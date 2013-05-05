@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -47,6 +49,7 @@ public class Album implements Serializable {
         this.title = title;
     }
 
+    @JsonIgnore
     public Set<Song> getSongs() {
         return songs;
     }

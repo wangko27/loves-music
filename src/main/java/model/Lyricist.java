@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -21,7 +23,7 @@ public class Lyricist implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "pic_url", nullable = false)
+    @Column(name = "pic_url", nullable = true)
     private String picUrl;
 
     @OneToMany(
@@ -53,14 +55,17 @@ public class Lyricist implements Serializable {
         this.name = name;
     }
 
+    @JsonIgnore
     public Set<Lyric> getLyrics() {
         return lyrics;
     }
 
+    @JsonIgnore
     public void setLyrics(Set<Lyric> lyrics) {
         this.lyrics = lyrics;
     }
 
+    @JsonIgnore
     public Set<Band> getBands() {
         return bands;
     }
@@ -69,6 +74,7 @@ public class Lyricist implements Serializable {
         this.bands = bands;
     }
 
+    @JsonIgnore
     public String getPicUrl() {
         return picUrl;
     }
