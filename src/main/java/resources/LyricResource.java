@@ -10,7 +10,9 @@ import service.*;
 import com.google.inject.Inject;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Resource to access {@link model.Lyric} instances
@@ -100,7 +102,23 @@ public class LyricResource {
         Lyricist lyricist = lyricistService.getLyricistWithName(lyric.getLyricist().getName());
         if (lyricist == null) {
             lyricist = lyric.getLyricist();
+            Set<Band> bands = new HashSet<Band>();
+            bands.add(lyricBand);
+            lyricist.setBands(bands);
             lyricistService.persistLyricist(lyricist);
+        } else {
+            // Add this band if it's not there
+            boolean bandFound = false;
+            for (Band b : lyricist.getBands()) {
+                if (b.getId().equals(lyricBand.getId())) {
+                    bandFound = true;
+                    break;
+                }
+            }
+            if (!bandFound) {
+                lyricist.getBands().add(lyricBand);
+                lyricistService.updateLyricist(lyricist);
+            }
         }
         // Tagz
         for (Tag tag : lyric.getTags()) {
