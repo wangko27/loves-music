@@ -52,7 +52,7 @@ public class LyricDaoImpl implements LyricDao {
     }
 
     public List<Lyric> getAllLyrics() {
-        TypedQuery<Lyric> query = entityManager.get().createQuery("from Lyric l", Lyric.class);
+        TypedQuery<Lyric> query = entityManager.get().createQuery("from Lyric l order by l.id desc", Lyric.class);
         return query.getResultList();
     }
 

@@ -122,10 +122,10 @@ public class LyricResource {
         }
         // Tagz
         for (Tag tag : lyric.getTags()) {
-            Tag existingTag = tagService.getTagWithName(tag.getName());
-            if (existingTag == null) {
-                tagService.persistTag(tag);
-            }
+            //Tag existingTag = tagService.getTagWithName(tag.getName());
+            //if (existingTag == null) {
+            tagService.persistTag(tag);
+            //}
         }
         // Lyric yo
         lyric.setSong(lyricSong);
